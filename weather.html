@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type = "text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    
+    <script>
+        $.getJSON('http://api.openweathermap.org/data/2.5/forecast?id=1835848&APPID=f8b8761c25df03a84389bdbb6a97a6c5&units=metric'
+                ,function(data){
+            var $minTemp = data.list[0].main.temp_min;
+            var $maxTemp = data.list[0].main.temp_max;
+            var $humidity = data.list[0].main.humidity;
+            var $type = data.list[0].weather[0].description;
+            var $sky = data.list[0].weather[0].main;
+            var $probability = data.list[0].clouds.all;
+            
+            if($type == "Clouds")
+                $type = "구름";
+            else if($type == "Rain")
+                $type = "비";
+            else
+                $type = "맑음";
+            
+            $('.clowtemp').append($minTemp + "°C");
+            $('.chightemp').append($maxTemp + "°C");
+            $('.chumidity').append($humidity + "%");
+            $('.csky').append($sky);
+            $('.ctype').append($type);
+            $('.cprobability').append($probability + "%");	
+        });
+    </script><winfo>
+    <div class="cprobability">강수확률: </div>
+    <div class="ctype">강수형태: </div>
+    <div class="csky">하늘상태: </div>
+    <div class="chumidity">습도: </div>
+    <div class="chightemp">낮 최고기온: </div>
+    <div class="clowtemp">아침 최저기온: </div></winfo>
+    <div class="weatherbox">
+    <div class="weather"></div>
+    <div class="backbutton"><a href="index.html">뒤로가기</a></div>
+    </div>
+</body>
+</html>

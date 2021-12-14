@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RaspberryPi4</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+
+
+<script type="text/javascript">
+    var imgArray = new Array();
+    imgArray[0] = "image01.jpg";
+    imgArray[1] = "image02.jpg";
+    imgArray[2] = "image03.jpg";
+    imgArray[3] = "image04.jpg";
+    imgArray[4] = "image05.jpg";
+    imgArray[5] = "image06.jpg";
+
+    function showImage() {
+        var imgNum = Math.round(Math.random() * 6);
+        var objImg = document.getElementById("introImg");
+        objImg.src = imgArray[imgNum];
+
+        setTimeout("showImage()", 2000);
+    }
+
+    
+</script>
+    </head>
+    <body onload="showImage()">
+        
+<div class="container">
+
+    <div class="Painting">
+    
+   <img id="introImg" width="1200" height="675">
+    
+
+    </div>
+    
+    <div class="Time"><a href="time.html"><p>시간정보</p></a></div>
+    <div class="Weather"><a href="weather.html"><p>오늘의 날씨</p></a></div>
+    <div class="Covid"><a href="covid.html"><p>Covid-19 정보</p></a></div>
+</div>
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+</html>
